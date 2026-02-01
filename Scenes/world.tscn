@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://d4c5u06yyoh8s"]
 
-[ext_resource type="Script" uid="uid://yrnnewdk02ee" path="res://Scripts/Overglade.gd" id="1_8j60k"]
+[ext_resource type="Script" uid="uid://yrnnewdk02ee" path="res://Scripts/Overglade.gd" id="1_8j60k"]dadded
 [ext_resource type="PackedScene" uid="uid://cvrpsiwnxao4a" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://sx0medm8t8jx" path="res://icon.svg" id="1_go701"]
 [ext_resource type="Script" uid="uid://clwagkaxx0fbs" path="res://Scripts/npc.gd" id="4_fo5ed"]
