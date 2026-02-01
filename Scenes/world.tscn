@@ -1,13 +1,46 @@
-[gd_scene load_steps=3 format=3 uid="uid://d4c5u06yyoh8s"]
+[gd_scene load_steps=7 format=3 uid="uid://d4c5u06yyoh8s"]
 
+[ext_resource type="Script" uid="uid://yrnnewdk02ee" path="res://Scripts/Overglade.gd" id="1_8j60k"]
 [ext_resource type="PackedScene" uid="uid://cvrpsiwnxao4a" path="res://Scenes/player.tscn" id="1_a02cp"]
 [ext_resource type="Texture2D" uid="uid://sx0medm8t8jx" path="res://icon.svg" id="1_go701"]
+[ext_resource type="Script" uid="uid://clwagkaxx0fbs" path="res://Scripts/npc.gd" id="4_fo5ed"]
 
-[node name="World" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8j60k"]
 
-[node name="Icon" type="Sprite2D" parent="."]
-position = Vector2(-332.5, 127.5)
-scale = Vector2(3.71094, 2.82031)
-texture = ExtResource("1_go701")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fo5ed"]
+
+[node name="Overglade" type="Node2D"]
+script = ExtResource("1_8j60k")
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
 
 [node name="Player" parent="." instance=ExtResource("1_a02cp")]
+
+[node name="Icon" type="Sprite2D" parent="Player"]
+position = Vector2(-513.50006, 0.5000763)
+scale = Vector2(1.056, 1)
+texture = ExtResource("1_go701")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="NPCs" type="Node2D" parent="."]
+
+[node name="NPC" type="CharacterBody2D" parent="NPCs"]
+script = ExtResource("4_fo5ed")
+
+[node name="Tongyu" type="Sprite2D" parent="NPCs/NPC"]
+
+[node name="InteractZone" type="Area2D" parent="NPCs/NPC"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPCs/NPC/InteractZone"]
+shape = SubResource("RectangleShape2D_8j60k")
+
+[node name="Triggers" type="Node2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Triggers"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Triggers/Area2D"]
+shape = SubResource("RectangleShape2D_fo5ed")
