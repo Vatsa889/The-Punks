@@ -1,29 +1,41 @@
 [gd_scene format=3 uid="uid://cqcqf7kf645el"]
 
 [ext_resource type="Texture2D" uid="uid://r2pp266ni5dl" path="res://Assets/Clouds 1/1.png" id="1_1rerr"]
+[ext_resource type="Script" uid="uid://b5270icmglga6" path="res://Scripts/menu.gd" id="1_cayip"]
 [ext_resource type="Texture2D" uid="uid://b61bcigiqrvic" path="res://Assets/Clouds 1/4.png" id="2_xhh6f"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xhh6f"]
+bg_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_158mb"]
+bg_color = Color(0.3500639, 0.35006398, 0.3500638, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cayip"]
+bg_color = Color(0.25275353, 0.2527536, 0.25275344, 1)
+
 [node name="Menu" type="Control" unique_id=1168137118]
-visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_cayip")
+metadata/_edit_lock_ = true
 
 [node name="BG" type="Control" parent="." unique_id=846688774]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="BG" unique_id=1756525386]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 536.0
-offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("1_1rerr")
@@ -41,8 +53,6 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 536.0
-offset_bottom = 284.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_xhh6f")
@@ -55,17 +65,63 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=160140805]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="Button" type="VBoxContainer" parent="." unique_id=160140805]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.25
+offset_top = -90.5
+offset_right = 82.25
+offset_bottom = 90.5
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 12
+alignment = 1
 
-[node name="Button" type="Button" parent="VBoxContainer" unique_id=406549962]
+[node name="Play" type="Button" parent="Button" unique_id=406549962]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+text = "Play"
 
-[node name="Button2" type="Button" parent="VBoxContainer" unique_id=100769628]
+[node name="Options" type="Button" parent="Button" unique_id=100769628]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+text = "Options"
 
-[node name="Button3" type="Button" parent="VBoxContainer" unique_id=694051750]
+[node name="Exit" type="Button" parent="Button" unique_id=694051750]
 layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_xhh6f")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_158mb")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cayip")
+text = "Exit"
+
+[node name="Title" type="Label" parent="." unique_id=1137129607]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -149.5
+offset_top = 72.0
+offset_right = 149.5
+offset_bottom = 155.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 60
+text = "The Punks"
+
+[connection signal="pressed" from="Button/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Button/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Button/Exit" to="." method="_on_exit_pressed"]
