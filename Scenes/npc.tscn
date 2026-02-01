@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c5lsjajpcq3qc"]
+
+[ext_resource type="Script" path="res://Scripts/npc.gd" id="1_acqhf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xxsvc"]
+
+[node name="NPC" type="Node2D" unique_id=1080947214]
+
+[node name="NPC" type="CharacterBody2D" parent="." unique_id=719351931]
+script = ExtResource("1_acqhf")
+
+[node name="Tongyu" type="Sprite2D" parent="NPC" unique_id=853202920]
+
+[node name="InteractZone" type="Area2D" parent="NPC" unique_id=1404973489]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NPC/InteractZone" unique_id=856509274]
+shape = SubResource("RectangleShape2D_xxsvc")
